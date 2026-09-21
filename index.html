@@ -61,11 +61,16 @@
 	  
 	<!-- Language Switch -->
 	<div class="language-switch text-center">
-	  <a href="#" onclick="translatePage(); return false;" class="language-btn">
-	    <i class="bi bi-translate"></i>
-	    <span>English</span>
+	  <a href="#" onclick="setLanguage('de'); return false;" class="language-btn" id="lang-de">
+	    DE
+	  </a>
+	  <span class="language-divider">|</span>
+	  <a href="#" onclick="setLanguage('en'); return false;" class="language-btn" id="lang-en">
+	    EN
 	  </a>
 	</div>
+	
+	<div id="google_translate_element" style="display:none;"></div>
 	  
     <nav id="navmenu" class="navmenu">
       <ul>
@@ -995,16 +1000,27 @@
   <script src="js/main.js"></script>
 	
 	<script>
-	function translatePage() {
-	  const currentUrl = window.location.href;
+	  function googleTranslateElementInit() {
+	    new google.translate.TranslateElement({
+	      pageLanguage: 'de',
+	      includedLanguages: 'de,en',
+	      autoDisplay: false
+	    }, 'google_translate_element');
+	  }
 	
-	  const translateUrl =
-	    'https://translate.google.com/translate?sl=de&tl=en&u=' +
-	    encodeURIComponent(currentUrl);
+	  function setLanguage(language) {
+	    const select = document.querySelector('.goog-te-combo');
 	
-	  window.location.href = translateUrl;
-	}
+	    if (!select) {
+	      return;
+	    }
+	
+	    select.value = language;
+	    select.dispatchEvent(new Event('change'));
+	  }
 	</script>
+	
+	<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	
 </body>
 
