@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="utf-8">
@@ -58,7 +58,15 @@
       <a href="https://www.instagram.com/maarryy_s/" target="new" class="instagram"><i class="bi bi-instagram"></i></a>
       <a href="https://www.xing.com/profile/Maria_Schlierf2/web_profiles?nwt_nav=profile_icon" target="new" class="xing"><i class="bi bi-briefcase"></i></a>
     </div>
-
+	  
+	<!-- Language Switch -->
+	<div class="language-switch text-center">
+	  <a href="#" onclick="translatePage(); return false;" class="language-btn">
+	    <i class="bi bi-translate"></i>
+	    <span>English</span>
+	  </a>
+	</div>
+	  
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> Start</a></li>
@@ -985,7 +993,19 @@
 
   <!-- Main JS File -->
   <script src="js/main.js"></script>
-
+	
+	<script>
+	function translatePage() {
+	  const currentUrl = window.location.href;
+	
+	  const translateUrl =
+	    'https://translate.google.com/translate?sl=de&tl=en&u=' +
+	    encodeURIComponent(currentUrl);
+	
+	  window.location.href = translateUrl;
+	}
+	</script>
+	
 </body>
 
 </html>
