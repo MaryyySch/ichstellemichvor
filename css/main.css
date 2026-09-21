@@ -1279,23 +1279,22 @@ section,
 .language-switch {
   margin-top: 18px;
   margin-bottom: 10px;
+  font-size: 13px;
 }
 
 .language-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 7px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 20px;
   color: #fff;
   text-decoration: none;
-  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 6px;
   transition: all 0.3s ease;
 }
 
 .language-btn:hover {
-  background: #ff4602;
-  border-color: #ff4602;
-  color: #fff;
+  color: #ff4602;
+}
+
+.language-divider {
+  color: rgba(255,255,255,0.4);
+  margin: 0 2px;
 }
